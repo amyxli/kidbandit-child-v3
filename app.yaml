@@ -1,0 +1,27 @@
+application: unsw-kidbandit-child-3demo
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+- url: /img
+  static_dir: img
+
+- url: /sound
+  static_dir: sound
+  
+- url: /js
+  static_dir: js
+
+- url: /.*
+  script: backend.application
+
+libraries:
+- name: webapp2
+  version: latest
+- name: jinja2
+  version: latest
+
+builtins:
+  - remote_api: on
