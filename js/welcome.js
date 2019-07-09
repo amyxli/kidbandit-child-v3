@@ -38,8 +38,6 @@ welcome.click.consent = function() {
     welcome.helpers.setHeader(' ');
 }
 welcome.click.demographics = function() {
-    welcome.helpers.setDisplay('demographics', 'none');
-    welcome.helpers.setDisplay('header', 'none');
     jsPsych.data.addProperties({  // record the condition assignment in the jsPsych data
         subjID: document.getElementById("subjID").value,
         gender: document.getElementById("gender").value,
@@ -48,8 +46,22 @@ welcome.click.demographics = function() {
         dot: document.getElementById("dot").value,
         language: document.getElementById("language").value,
     });
-    startExperiment(); // start the jsPsych experiment
-}
+
+if (
+    (document.getElementById("subjID").value !== '') &&
+    (document.getElementById("age").value !== '') &&
+    (document.getElementById("dob").value !== '') &&
+    (document.getElementById("dot").value !== '') 
+    ) {
+        welcome.helpers.setDisplay('demographics', 'none');
+        welcome.helpers.setDisplay('header', 'none');
+        startExperiment(); // start the jsPsych experiment
+        } else {
+        alert('Please fill in subject ID, age, DOB, and DOT.');
+        return;
+        }
+    }
+
 
 
 // ------------- html for the various sections ----------------
@@ -127,9 +139,9 @@ welcome.section.demographics =
     '			<!-- Age -->' +
     '           <label for="age"><b>Age: &nbsp;</b></label><input id="age" name="age" /><br /><br />' +
     '     <!-- DOB -->' +
-    '           <label for="dob"><b>DOB: &nbsp;</b></label><input id="dob" name="dob" /><br /><br />' +
+    '           <label for="dob"><b>DOB (mm/dd/yyyy): &nbsp;</b></label><input id="dob" name="dob" /><br /><br />' +
     '     <!-- DOT -->' +
-    '           <label for="dot"><b>DOT: &nbsp;</b></label><input id="dot" name="dot" /><br /><br />' +
+    '           <label for="dot"><b>DOT (mm/dd/yyyy): &nbsp;</b></label><input id="dot" name="dot" /><br /><br />' +
     '			<!-- Language -->' +
     '           <label for="language"><b>Native Language(s): &nbsp;</b></label>' +
     '            <input id="language" name="language" /><br /><br />' +
