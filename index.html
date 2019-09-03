@@ -144,12 +144,12 @@
         timeline: timeline,
         preload_audio: sound,
         preload_images: images,
-        on_finish: function() {
-          jsPsych.data.get().localSave('csv','test.csv')
-         },  // uncomment to locally save data file
         //on_finish: function() {
-        //  endExperiment(jsPsych.data.get().csv(), function() {document.write('<div id="endscreen" class="endscreen" style="width:1000px"><div class="endscreen" style="text-align:center; border:0px solid; padding:10px; font-size:120%; width:800px"><p><br><br><br>You\'re all done!<br><br><br> <img src=\'img/minions.gif\' </img> <br><br>  Thanks for playing with us! <br><br> Now go get your stickers!</p></div></div>') }
-        //)}, // uncomment for cloud save
+        //  jsPsych.data.get().localSave('csv','test.csv')
+        // },  // uncomment to locally save data file
+        on_finish: function() {
+          endExperiment(jsPsych.data.get().csv(), function() {document.write('<div id="endscreen" class="endscreen" style="width:1000px"><div class="endscreen" style="text-align:center; border:0px solid; padding:10px; font-size:120%; width:800px"><p><br><br><br>You\'re all done!<br><br><br> <img src=\'img/minions.gif\' </img> <br><br>  Thanks for playing with us! <br><br> Now go get your stickers!</p></div></div>') }
+        )}, // uncomment for cloud save
         show_progress_bar: true,
         auto_update_progress_bar: false
       });
@@ -404,7 +404,7 @@
         choices: pointvals_secondhalf,
         on_start: function() {
             var last_monster = jsPsych.data.get().last(1).values()[0].button_pressed;
-            return pointsAdded = pointvals_firsthalf[last_monster];
+            return pointsAdded = pointvals_secondhalf[last_monster];
             },
         on_finish: function(data){
             pointsCurrent = pointsCurrent + pointsAdded;
@@ -423,7 +423,7 @@
     // push # copies of it to the timeline
     var trials1 = {
       timeline: [monster, feedback1],
-      repetitions: 6,
+      repetitions: 40,
       randomize_order: false,
     };
 
@@ -431,7 +431,7 @@
     // push # copies of it to the timeline
     var trials2 = {
       timeline: [monster, feedback2],
-      repetitions: 6,
+      repetitions: 40,
       randomize_order: false,
     };
 

@@ -3,9 +3,9 @@ var welcome = {};
 // --------------  things that vary from task to task --------------
 
 welcome.task = {};
-welcome.task.blurb = '<b>"The Monsters Game - Study 3"</b> is a short psychological study investigating how people make decisions. <br> This is a <b> demo of the child version of the follow-up (full-feedback) study containing 12 trials.</b> Data will save locally as a .csv file after completing the task.';
+welcome.task.blurb = '<b>"The Monsters Game - Study 3"</b> is a short psychological study investigating how people make decisions. <br> This is the <b> child (full feedback) </b> version of the follow-up study containing 80 trials. Data will be saved automatically to server after completing the task.';
 welcome.task.time = '10-15 minutes';
-welcome.task.pay = 'US$0.85';
+welcome.task.pay = 'US$NA';
 
 // --------------  things that vary between ethics approvals --------------
 
